@@ -9,6 +9,14 @@ export default function Home() {
     new Cliente('Teste', 0, '2')
   ]
 
+  function clienteSelecionado(cliente: Cliente) {
+
+  }
+
+  function clienteExcluido(cliente: Cliente) {
+
+  }
+
   return (
     <div className={`
       flex justify-center items-center h-screen
@@ -16,7 +24,10 @@ export default function Home() {
       text-white
     `}>
         <Layout titulo="Cadastro Simples">
-          <Tabela clientes={clientes}></Tabela>
+          <Tabela clientes={clientes} 
+            clienteSelecionado={clienteSelecionado}
+            clienteExcluido={clienteExcluido} 
+          />
         </Layout>
     </div>
   )
