@@ -24,17 +24,18 @@ export default class ColecaoCliente implements ClienteRepositorio {
         } else {
             const docRef = await this.colecao().add(cliente)
             const doc = await docRef.get()
-            return doc.data()
+            return doc.data() as Cliente 
         }
     }
 
     async excluir(cliente: Cliente): Promise<void> {
-        return this.colecao().doc(cliente.id).delete()         
+        if (!cliente?.id) return
+        return this.colecao().doc(cliente.id).delete()        
     }
 
     async obterTodos(): Promise<Cliente[]> {
         const query = await this.colecao().get()
-        return query.docs.map(doc => doc.data()) ?? []      
+        return query.docs.map(doc => doc.data() as Cliente) ?? []
     }
 
     private colecao() {

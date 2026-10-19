@@ -7,9 +7,9 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
-    /^bg-/,
-    /^to-/,
-    /^from-/,
+    '^bg-',
+    '^to-',
+    '^from-',
   ],
   theme: {
     extend: {
